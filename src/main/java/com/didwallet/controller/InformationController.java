@@ -46,4 +46,10 @@ public class InformationController {
 
         return Result.success(informationDto);
     }
+
+    @RequestMapping("/update")
+    public Result<String> updateByEmail(@RequestParam Integer activeId, @RequestParam String email){
+        activeService.updateByEmail(activeId, email);
+        return Result.error("授权成功！");
+    }
 }

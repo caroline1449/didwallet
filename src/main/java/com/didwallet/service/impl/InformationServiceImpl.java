@@ -50,7 +50,6 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
         userDto.setEmail(user.getEmail());
-        userDto.setPassword(user.getPassword());
         userDto.setToken(token);
         log.info("userDto:{}", userDto);
 

@@ -10,4 +10,10 @@ import com.didwallet.model.po.Active;
  */
 public interface ActiveService extends IService<Active> {
 
+    /**
+     * 授权身份
+     * @param activeId
+     * @param email
+     */
+    void updateByEmail(Integer activeId, String email);
 }
