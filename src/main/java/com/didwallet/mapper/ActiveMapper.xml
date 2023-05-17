@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.didwallet.mapper.ActiveMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.didwallet.model.po.Active">
+        <id column="email" property="email" />
+        <result column="id_active" property="idActive" />
+        <result column="st_active" property="stActive" />
+        <result column="cp_active" property="cpActive" />
+        <result column="vc_active" property="vcActive" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        email, id_active, st_active, cp_active, vc_active
+    </sql>
+
+</mapper>

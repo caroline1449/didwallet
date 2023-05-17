@@ -1,0 +1,28 @@
+### 用户注册（正确、邮箱已存在）
+PUT http://localhost:8081/user/register
+Content-Type: application/json
+
+{
+  "email": "1234567891@qq.com",
+  "password": "123456"
+}
+
+<> 2023-05-17T151337.200.json
+<> 2023-05-17T151210.500.json
+
+### 用户登录（正确、邮箱错误、密码错误）
+POST http://localhost:8081/user/login
+Content-Type: application/json
+
+{
+  "email": "1234567890@qq.com",
+  "password": "123456"
+}
+
+<> 2023-05-17T151427.200.json
+<> 2023-05-17T151421.200.json
+<> 2023-05-17T151413.200.json
+
+### 根据email获取基本信息
+GET http://localhost:8081/information/1234567890@qq.com
+

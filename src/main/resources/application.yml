@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/didwallet?serverTimezon=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 2374@ksblk1449
+
+# 日志文件配置路径
+logging:
+  config: classpath:log4j2-dev.xml

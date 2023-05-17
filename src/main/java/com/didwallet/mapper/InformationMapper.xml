@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.didwallet.mapper.InformationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.didwallet.model.po.Information">
+        <id column="id" property="id" />
+        <result column="email" property="email" />
+        <result column="name" property="name" />
+        <result column="birthday" property="birthday" />
+        <result column="country" property="country" />
+        <result column="area" property="area" />
+        <result column="speciality" property="speciality" />
+        <result column="university" property="university" />
+        <result column="enrollment_year" property="enrollmentYear" />
+        <result column="vaccinum" property="vaccinum" />
+        <result column="vaccination_date" property="vaccinationDate" />
+        <result column="location" property="location" />
+        <result column="company" property="company" />
+        <result column="position" property="position" />
+        <result column="joined_date" property="joinedDate" />
+        <result column="did" property="did" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, email, name, birthday, country, area, speciality, university, enrollment_year, vaccinum, vaccination_date, location, company, position, joined_date, did
+    </sql>
+
+</mapper>
