@@ -6,16 +6,17 @@ import com.didwallet.common.CustomException;
 import com.didwallet.common.Result;
 import com.didwallet.mapper.ActiveMapper;
 import com.didwallet.mapper.InformationMapper;
+import com.didwallet.model.dto.UserDto;
 import com.didwallet.model.po.Active;
 import com.didwallet.model.po.Information;
 import com.didwallet.service.InformationService;
+import com.didwallet.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.time.Year;
 
 /**
  * @author 俞静雯
@@ -33,7 +34,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     ActiveMapper activeMapper;
 
     @Override
-    public Result<String> getUser(Information information) {
+    public Result<UserDto> getUser(Information information) {
         LambdaQueryWrapper<Information> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Information::getEmail, information.getEmail());
         Information user = informationMapper.selectOne(queryWrapper);
@@ -44,7 +45,16 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         if (!user.getPassword().equals(information.getPassword())){
             return Result.error("密码错误，请重试！", 0);
         }
-        return Result.success("登录成功！");
+
+        String token = JwtUtil.getToken(user);
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setEmail(user.getEmail());
+        userDto.setPassword(user.getPassword());
+        userDto.setToken(token);
+        log.info("userDto:{}", userDto);
+
+        return Result.success(userDto);
     }
 
     @Transactional

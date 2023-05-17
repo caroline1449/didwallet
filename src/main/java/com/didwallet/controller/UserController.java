@@ -1,6 +1,7 @@
 package com.didwallet.controller;
 
 import com.didwallet.common.Result;
+import com.didwallet.model.dto.UserDto;
 import com.didwallet.model.po.Information;
 import com.didwallet.service.InformationService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,13 +28,13 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public Result<String> login(@RequestBody Information information){
+    public Result<UserDto> login(@RequestBody Information information){
         log.info("information:{}", information);
         String password = information.getPassword();
         password = DigestUtils.md5DigestAsHex(password.getBytes());
         information.setPassword(password);
 
-        Result<String> result = informationService.getUser(information);
+        Result<UserDto> result = informationService.getUser(information);
         return result;
     }
 

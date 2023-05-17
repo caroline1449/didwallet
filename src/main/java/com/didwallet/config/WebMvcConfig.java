@@ -2,6 +2,7 @@ package com.didwallet.config;
 
 import com.didwallet.common.JacksonObjectMapper;
 //import com.yjw.interceptor.JwtInterceptor;
+import com.didwallet.interceptor.JwtInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -37,16 +38,16 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         converters.add(0, messageConverter);
     }
 
-//    /**
-//     * 登录拦截
-//     * @param registry
-//     */
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(jwtInterceptor())
-//                .addPathPatterns("/**")     //拦截所有请求，判断token是否合法
-//                .excludePathPatterns("/user/login", "/user/register", "/common/**");      //登录注册自动放行
-//    }
+    /**
+     * 登录拦截
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(jwtInterceptor())
+                .addPathPatterns("/**")     //拦截所有请求，判断token是否合法
+                .excludePathPatterns("/user/login", "/user/register");      //登录注册自动放行
+    }
 
     /**
      * 跨域解决
@@ -63,10 +64,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .maxAge(3600);
     }
 
-//    @Bean
-//    public JwtInterceptor jwtInterceptor(){
-//        return new JwtInterceptor();
-//    }
+    @Bean
+    public JwtInterceptor jwtInterceptor(){
+        return new JwtInterceptor();
+    }
 //
 //    @Override
 //    protected void addResourceHandlers(ResourceHandlerRegistry registry) {

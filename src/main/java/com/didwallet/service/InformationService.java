@@ -2,6 +2,7 @@ package com.didwallet.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.didwallet.common.Result;
+import com.didwallet.model.dto.UserDto;
 import com.didwallet.model.po.Information;
 
 /**
@@ -15,7 +16,7 @@ public interface InformationService extends IService<Information> {
      * @param information 邮箱和加密完成的密码
      * @return
      */
-    Result<String> getUser(Information information);
+    Result<UserDto> getUser(Information information);
 
     /**
      * 用户注册
