@@ -42,11 +42,37 @@ public class Active implements Serializable {
      */
     private Integer vcActive;
 
-    public Active(String email, Integer idActive, Integer stActive, Integer cpActive, Integer vcActive) {
+    /**
+     * 发票授权状态
+     */
+    private Integer ivActive;
+
+    /**
+     * 收据授权状态
+     */
+    private Integer reActive;
+
+    /**
+     * 会议授权状态
+     */
+    private Integer mtActive;
+
+    /**
+     * 门票授权状态
+     */
+    private Integer tkActive;
+
+    public Active(String email, Integer idActive, Integer stActive, Integer cpActive, Integer vcActive, Integer ivActive,Integer reActive,
+                  Integer mtActive,Integer tkActive) {
         this.email = email;
         this.idActive = idActive;
         this.stActive = stActive;
         this.cpActive = cpActive;
         this.vcActive = vcActive;
+        this.ivActive = ivActive;
+        this.reActive = reActive;
+        this.mtActive = mtActive;
+        this.tkActive = tkActive;
+
     }
 }

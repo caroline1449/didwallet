@@ -6,7 +6,7 @@ spring:
     url: jdbc:mysql://localhost:3306/didwallet?serverTimezon=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 2374@ksblk1449
+    password: Uniosuy9
 
 # 日志文件配置路径
 logging:

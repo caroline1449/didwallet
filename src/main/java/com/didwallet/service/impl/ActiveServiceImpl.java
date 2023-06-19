@@ -27,7 +27,6 @@ public class ActiveServiceImpl extends ServiceImpl<ActiveMapper, Active> impleme
         if(active == null){
             throw new RuntimeException("系统错误，找不到用户！");
         }
-
         if (activeId == 1){
             active.setIdActive(1);
         }else if (activeId == 2){
@@ -36,6 +35,14 @@ public class ActiveServiceImpl extends ServiceImpl<ActiveMapper, Active> impleme
             active.setVcActive(1);
         }else if(activeId == 4){
             active.setCpActive(1);
+        }else if(activeId == 5){
+            active.setIvActive(1);
+        }else if(activeId == 6){
+            active.setReActive(1);
+        }else if(activeId == 7){
+            active.setMtActive(1);
+        }else if(activeId == 8){
+            active.setTkActive(1);
         }
         activeMapper.update(active, queryWrapper);
     }

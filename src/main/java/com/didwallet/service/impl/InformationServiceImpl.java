@@ -70,7 +70,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         // 注册,生成基础信息
         Information information1 = setInformation(information);
         int i1 = informationMapper.insert(information1);
-        Active active = new Active(information1.getEmail(), 0, 0, 0, 0);
+        Active active = new Active(information1.getEmail(), 0, 0, 0, 0,0,0,0,0);
         int i2 = activeMapper.insert(active);
 
         if (i1 == 1 && i2 == 1)
