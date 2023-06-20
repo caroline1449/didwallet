@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.didwallet.mapper.OtherMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.didwallet.model.po.Other">
+
+        <id column="id" property="id" />
+        <result column="email" property="email" />
+        <result column="text" property="text" />
+        <result column="data" property="data" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,email,text,data
+    </sql>
+
+    <!-- 根据text和email查找id -->
+    <select id="getIdByTextAndEmail" parameterType="com.didwallet.model.po.Other" resultType="java.lang.Integer">
+        SELECT id
+        FROM other
+        WHERE text = #{text}
+          AND email = #{email}
+    </select>
+
+    <!-- 根据id更新数据 -->
+    <update id="updateDataById" parameterType="com.didwallet.model.po.Other">
+        UPDATE other
+        SET text = #{text}, data = #{data}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 插入数据 -->
+    <insert id="insertData" parameterType="com.didwallet.model.po.Other">
+        INSERT INTO other (text, email, data)
+        VALUES (#{text}, #{email}, #{data})
+    </insert>
+</mapper>

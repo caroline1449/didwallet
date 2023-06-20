@@ -3,11 +3,14 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/didwallet?serverTimezon=UTC
+    url: jdbc:mysql://localhost:3306/didwallet?serverTimezon=UTC&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: Uniosuy9
+    password:
 
 # 日志文件配置路径
 logging:
   config: classpath:log4j2-dev.xml
+
+mybatis:
+  mapper-locations=classpath:mapper/*.xml:

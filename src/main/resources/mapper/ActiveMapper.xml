@@ -13,7 +13,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        email, id_active, st_active, cp_active, vc_active
+        email, id_active, st_active, cp_active, vc_active, iv_active, re_active, mt_active, tk_active
     </sql>
 
 </mapper>
